@@ -56,7 +56,13 @@ for (species in c("Homo_sapiens", "Mus_musculus", "Rattus_norvegicus")) {
         brainarray_df <- as.data.frame(get(package), stringsAsFactors = FALSE)
         brainarray_df <- brainarray_df %>%
             dplyr::mutate(Probe.Set.Name = sub("_at", "", Probe.Set.Name)) %>%
-            dplyr::filter(startsWith(Probe.Set.Name, "ENSG"))
+            dplyr::filter(
+                startsWith(Probe.Set.Name, "ENSG") |
+                # Mouse genes are ENSMUSG
+                startsWith(Probe.Set.Name, "ENSMUSG") |
+                # Rat genes are ENSRNOG
+                startsWith(Probe.Set.Name, "ENSRNOG")
+            )
 
         mapped_gene_ids <<- c(mapped_gene_ids, unique(brainarray_df$Probe.Set.Name))
     }))
