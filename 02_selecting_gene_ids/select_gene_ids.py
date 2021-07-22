@@ -47,19 +47,7 @@ def pick_gene_id(species: str):
         elif len(nonzero_occurrences) == 1:
             return nonzero_occurrences[0][0]
 
-        # # Now, we know that we have multiple nonzero occurrences, so we need to
-        # # check for ties. In this case, I will define a tie as two gene IDs
-        # # having at least half the # of occurrences as the max, because there
-        # # are some occurrences like [('ENSG00000143248', 29), ('ENSG00000232995', 3)]
-        # # which definitely are not ties, but others like
-        # # [('ENSG00000230876', 11), ('ENSG00000236854', 7)] which plausibly are
         max_num_occurrences = max(nonzero_occurrences, key=lambda x: x[1])[1]
-        # close_occurrences = [o for o in occurrences if 2 * o[1] > max_num_occurrences]
-
-        # if len(close_occurrences) == 1:
-        #     # No ties
-        #     return close_occurrences[0]
-
         max_occurrences = [o for o in occurrences if o[1] == max_num_occurrences]
         if len(max_occurrences) == 1:
             return max_occurrences[0][0]
