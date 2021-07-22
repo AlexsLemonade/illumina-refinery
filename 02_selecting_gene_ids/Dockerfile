@@ -3,7 +3,7 @@ from python:3.8-buster
 RUN groupadd user && useradd --create-home --home-dir /home/user -g user user
 WORKDIR /home/user
 
-RUN mkdir /out && chown user /out 
+RUN mkdir /out && chown user /out
 
 USER user
 

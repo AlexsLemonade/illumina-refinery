@@ -45,5 +45,3 @@ for (platform in platforms) {
   # Save to output file
   write.table(probeGene, paste0("/out/00_scraping_illumina/", platform, ".tsv"), row.names=FALSE, col.names=TRUE, quote=FALSE, sep="\t")
 }
-
-
