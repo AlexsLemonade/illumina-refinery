@@ -36,3 +36,22 @@ This step reads in the outputs from the previous steps and applies the prioritiz
 To run the full workflow, if you have Docker and make installed you can just run `make` or `make all`.
 
 The Makefile is set up to cache the outputs of individual steps of the workflow and to detect changes to the files associated with a particular step. It also understands the dependencies between steps, so if you edit a file in the `00_scraping_illumina` directory it will re-run only steps 00 and 02 of the pipeline.
+
+## Copyright
+
+`identifier-refinery` output assets are released under a [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/legalcode) license. All code is released under the BSD 3-clause license.
+
+Input assets in step 00 come from the the [Bioconductor project](http://bioconductor.org/):
+
+- Mark Dunning, Andy Lynch and Matthew Eldridge (2021). illuminaHumanv1.db: Illumina HumanWG6v1 annotation data (chip illuminaHumanv1). R package version 1.26.0.
+- Mark Dunning, Andy Lynch and Matthew Eldridge (2021). illuminaHumanv2.db: Illumina HumanWG6v2 annotation data (chip illuminaHumanv2). R package version 1.26.0.
+- Mark Dunning, Andy Lynch and Matthew Eldridge (2021). illuminaHumanv3.db: Illumina HumanHT12v3 annotation data (chip illuminaHumanv3). R package version 1.26.0.
+- Mark Dunning, Andy Lynch and Matthew Eldridge (2021). illuminaHumanv4.db: Illumina HumanHT12v4 annotation data (chip illuminaHumanv4). R package version 1.26.0.
+- Mark Dunning, Andy Lynch and Matthew Eldridge (2021). illuminaMousev1.db: Illumina MouseWG6v1 annotation data (chip illuminaMousev1). R package version 1.26.0.
+- Mark Dunning, Andy Lynch and Matthew Eldridge (2021). illuminaMousev1p1.db: Illumina MouseWG6v1p1 annotation data (chip illuminaMousev1p1). R package version 1.26.0.
+- Mark Dunning, Andy Lynch and Matthew Eldridge (2021). illuminaMousev2.db: Illumina MouseWG6v2 annotation data (chip illuminaMousev2). R package version 1.26.0.
+- Mark Dunning, Andy Lynch and Matthew Eldridge (2021). illuminaRatv1.db: Illumina Ratv1 annotation data (chip illuminaRatv1). R package version 1.26.0.
+
+Other assets used in the computing of steo 01 come from the [Brainarray project](http://brainarray.mbni.med.umich.edu/Brainarray/Database/CustomCDF/genomic_curated_CDF.asp):
+
+- Manhong Dai, Pinglang Wang, Andrew D. Boyd, Georgi Kostov, Brian Athey, Edward G. Jones, William E. Bunney, Richard M. Myers, Terry P. Speed, Huda Akil, Stanley J. Watson and Fan Meng. Evolving gene/transcript definitions significantly alter the interpretation of GeneChip data. Nucleic Acid Research 33 (20), e175, 2005.
