@@ -3,10 +3,9 @@ For each Illumina platform that we support:
   - Read the dataframe of duplicate probes and the different gene IDs
   - Read the brainarray occurrence counts for the current species
   - Group the duplicate probes dataframe by probe ID
-  - For each group, pick the gene ID with the highest occurrence count. If there
-    are ties, then we want to pick the gene ID that is on the main Ensembl
-    assembly. If there are multiple genes on the main assembly, pick the one with
-    the lower gene ID to break ties.
+  - For each group, pick the gene ID with the highest occurrence count. If
+    there are multiple genes with the highest occurrence count, pick the one
+    with the lower gene ID to break ties.
 """
 
 import pandas as pd
