@@ -13,6 +13,7 @@ brainarrayVersion <- opt$brainarrayVersion
 suppressPackageStartupMessages(library(xml2))
 suppressPackageStartupMessages(library(lazyeval))
 suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(readr))
 
 ensg_url <- paste0(
     "http://brainarray.mbni.med.umich.edu/Brainarray/Database/CustomCDF/",
@@ -85,5 +86,5 @@ for (species in c("Homo_sapiens", "Mus_musculus", "Rattus_norvegicus")) {
 
     data.frame(mapped_gene_ids) %>%
         dplyr::count(mapped_gene_ids) %>%
-        write.table(paste0("/out/01_scraping_brainarray_genes/", species, ".tsv"), row.names=FALSE, col.names=TRUE, quote=FALSE, sep="\t")
+        readr::write_tsv(paste0("/out/01_scraping_brainarray_genes/", species, ".tsv"))
 }
