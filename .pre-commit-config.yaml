@@ -9,6 +9,7 @@ repos:
       - id: mixed-line-ending
         args: [--fix=lf]
       - id: trailing-whitespace
+        exclude: "^out/02_selecting_gene_ids"
         args: [--markdown-linebreak-ext=md]
       - id: check-executables-have-shebangs
       - id: check-merge-conflict
