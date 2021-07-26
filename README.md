@@ -7,7 +7,7 @@ where a given probe maps to multiple genes.
 
 To determine which gene to map a given probe to, we select the genes in order of priority as follows:
 
-- Pick the gene with the most appearances in Brainarray packages for Affymetrix platforms on the same species as the input Illumina platform
+- Pick the gene with the most appearances in Brainarray packages for Affymetrix platforms of the same species as the input Illumina platform
 - If none of the associated gene IDs appear in any Brainarray platform, an NA is emitted
 - If two or more of the associated gene IDs appear an equal number of times in
   Brainarray platforms, the gene ID with the lower number is selected to break the tie.
@@ -52,6 +52,6 @@ Input assets in step 00 come from the the [Bioconductor project](http://biocondu
 - Mark Dunning, Andy Lynch and Matthew Eldridge (2021). illuminaMousev2.db: Illumina MouseWG6v2 annotation data (chip illuminaMousev2). R package version 1.26.0.
 - Mark Dunning, Andy Lynch and Matthew Eldridge (2021). illuminaRatv1.db: Illumina Ratv1 annotation data (chip illuminaRatv1). R package version 1.26.0.
 
-Other assets used in the computing of steo 01 come from the [Brainarray project](http://brainarray.mbni.med.umich.edu/Brainarray/Database/CustomCDF/genomic_curated_CDF.asp):
+Other assets used in the computing of step 01 come from the [Brainarray project](http://brainarray.mbni.med.umich.edu/Brainarray/Database/CustomCDF/genomic_curated_CDF.asp):
 
 - Manhong Dai, Pinglang Wang, Andrew D. Boyd, Georgi Kostov, Brian Athey, Edward G. Jones, William E. Bunney, Richard M. Myers, Terry P. Speed, Huda Akil, Stanley J. Watson and Fan Meng. Evolving gene/transcript definitions significantly alter the interpretation of GeneChip data. Nucleic Acid Research 33 (20), e175, 2005.
