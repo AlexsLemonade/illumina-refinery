@@ -1,8 +1,24 @@
+suppressPackageStartupMessages(library("optparse"))
+
+option_list = list(
+  make_option(c("-b", "--brainarrayVersion"), type="character", default="22.0.0",
+              help="Brainarray version", metavar="character")
+);
+
+opt_parser = OptionParser(option_list=option_list);
+opt = parse_args(opt_parser);
+
+brainarrayVersion <- opt$brainarrayVersion
+
 suppressPackageStartupMessages(library(xml2))
 suppressPackageStartupMessages(library(lazyeval))
 suppressPackageStartupMessages(library(dplyr))
 
-ensg_url <- "http://brainarray.mbni.med.umich.edu/Brainarray/Database/CustomCDF/22.0.0/ensg.asp"
+ensg_url <- paste0(
+    "http://brainarray.mbni.med.umich.edu/Brainarray/Database/CustomCDF/",
+    brainarrayVersion,
+    "/ensg.asp"
+)
 html_content <- read_html(ensg_url)
 
 data_table <- xml_find_all(html_content, ".//table")[[2]]
