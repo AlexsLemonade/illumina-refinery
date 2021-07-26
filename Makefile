@@ -37,7 +37,7 @@ out/01_scraping_brainarray_genes.dummy: 01_scraping_brainarray_genes/*
 	touch out/01_scraping_brainarray_genes.dummy
 
 
-out/02_selecting_gene_ids.dummy: out/00_scraping_illumina.dummy out/01_scraping_brainarray_genes 02_selecting_gene_ids/*
+out/02_selecting_gene_ids.dummy: out/00_scraping_illumina.dummy out/01_scraping_brainarray_genes.dummy 02_selecting_gene_ids/*
 	mkdir -p out/02_selecting_gene_ids
 	cd 02_selecting_gene_ids && docker build -t illumina-refinery/02_selecting_gene_ids .
 	docker run -t \
