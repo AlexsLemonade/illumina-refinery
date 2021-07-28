@@ -10,7 +10,10 @@ To determine which gene to map a given probe to, we select the genes in order of
 - Pick the gene with the most appearances in Brainarray packages for Affymetrix platforms of the same species as the input Illumina platform
 - If none of the associated gene IDs appear in any Brainarray platform, an NA is emitted
 - If two or more of the associated gene IDs appear an equal number of times in
-  Brainarray platforms, the gene ID with the lower number is selected to break the tie.
+  Brainarray platforms, or if none of the associated gene IDs appear in any Brainarray platform, we break ties as follows:
+  - First, we check Ensembl and filter out any gene IDs that are no longer valid
+  - Next, if there are any genes on the main assembly, we take only the genes on the main assembly and discard genes on alternate assemblies.
+  - If there are still two or more genes left, we pick the gene with the lowest gene ID to break the tie.
 
 The workflow is split up into the following steps:
 
@@ -55,3 +58,7 @@ Input assets in step 00 come from the the [Bioconductor project](http://biocondu
 Other assets used in the computing of step 01 come from the [Brainarray project](http://brainarray.mbni.med.umich.edu/Brainarray/Database/CustomCDF/genomic_curated_CDF.asp):
 
 - Manhong Dai, Pinglang Wang, Andrew D. Boyd, Georgi Kostov, Brian Athey, Edward G. Jones, William E. Bunney, Richard M. Myers, Terry P. Speed, Huda Akil, Stanley J. Watson and Fan Meng. Evolving gene/transcript definitions significantly alter the interpretation of GeneChip data. Nucleic Acid Research 33 (20), e175, 2005.
+
+and in step 02 we use gene ID information from the [Ensembl project](http://ensembl.org):
+
+- Kevin L Howe, Premanand Achuthan, James Allen, Jamie Allen, Jorge Alvarez-Jarreta, M Ridwan Amode, Irina M Armean, Andrey G Azov, Ruth Bennett, Jyothish Bhai, Konstantinos Billis, Sanjay Boddu, Mehrnaz Charkhchi, Carla Cummins, Luca Da Rin Fioretto, Claire Davidson, Kamalkumar Dodiya, Bilal El Houdaigui, Reham Fatima, Astrid Gall, Carlos Garcia Giron, Tiago Grego, Cristina Guijarro-Clarke, Leanne Haggerty, Anmol Hemrom, Thibaut Hourlier, Osagie G Izuogu, Thomas Juettemann, Vinay Kaikala, Mike Kay, Ilias Lavidas, Tuan Le, Diana Lemos, Jose Gonzalez Martinez, José Carlos Marugán, Thomas Maurel, Aoife C McMahon, Shamika Mohanan, Benjamin Moore, Matthieu Muffato, Denye N Oheh, Dimitrios Paraschas, Anne Parker, Andrew Parton, Irina Prosovetskaia, Manoj P Sakthivel, Ahamed I Abdul Salam, Bianca M Schmitt, Helen Schuilenburg, Dan Sheppard, Emily Steed, Michal Szpak, Marek Szuba, Kieron Taylor, Anja Thormann, Glen Threadgold, Brandon Walts, Andrea Winterbottom, Marc Chakiachvili, Ameya Chaubal, Nishadi De Silva, Bethany Flint, Adam Frankish, Sarah E Hunt, Garth R IIsley, Nick Langridge, Jane E Loveland, Fergal J Martin, Jonathan M Mudge, Joanella Morales, Emily Perry, Magali Ruffier, John Tate, David Thybert, Stephen J Trevanion, Fiona Cunningham, Andrew D Yates, Daniel R Zerbino, and Paul Flicek. Ensembl 2021. Nucleic Acids Res. 2021, vol. 49(1):884–891. PubMed PMID: 33137190. doi:10.1093/nar/gkaa942
