@@ -66,7 +66,7 @@ def pick_gene_id(species: str):
             # If everything occurs 0 times, we will need to try another filter method
             genes = [o[0] for o in occurrences]
 
-        # Now we have a tie. We need to gather more information on the genes in order ot progress.
+        # Now we have a tie. We need to gather more information on the genes in order to progress.
         def get_gene_info(gene):
             return requests.get(
                 f"https://rest.ensembl.org/lookup/id/{gene}?expand=1;content-type=application/json"
