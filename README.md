@@ -8,7 +8,6 @@ where a given probe maps to multiple genes.
 To determine which gene to map a given probe to, we select the genes in order of priority as follows:
 
 - Pick the gene with the most appearances in Brainarray packages for Affymetrix platforms of the same species as the input Illumina platform
-- If none of the associated gene IDs appear in any Brainarray platform, an NA is emitted
 - If two or more of the associated gene IDs appear an equal number of times in
   Brainarray platforms, or if none of the associated gene IDs appear in any Brainarray platform, we break ties as follows:
   - First, we check Ensembl and filter out any gene IDs that are no longer valid
